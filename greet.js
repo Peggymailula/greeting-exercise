@@ -1,11 +1,9 @@
-//references to DOM using document.querySelector()
-
 var languages = document.querySelector(".language");
 var GreetMeBtn = document.querySelector(".button");
 var names = document.querySelector(".namesInput");
 var messages = document.querySelector(".message");
 var count = document.querySelector(".counter");
-var resetBtn = document.querySelector(".clearBtn")
+var resetBtn = document.querySelector(".resetBtn")
 
 
 
@@ -19,8 +17,6 @@ var counting = localStorage.getItem('counter');
 var namesList = existingNames || [] ;
 //var newNames=[];
 
-//var instance = ggg(namesList)
-
 
 
 function greet(){
@@ -30,48 +26,27 @@ function greet(){
         var type = checkedRadioBtn.value;
     }
        
-
-    
-   
     var greet= GreetMe(namesList); 
     greet.setName(names.value);  
     greet.getName();
     greet.setLanguage(type);
-    //localStorage.setItem('count',getName);
+    localStorage.setItem('counter',JSON.stringify(namesList.length) );
     messages.innerHTML= greet.getLanguage();
-   count.innerHTML= greet.countNames();
+   count.innerHTML= JSON.parse(localStorage.getItem('counter'));
+ 
    names.value= "";
    
- 
-  
-
- 
-   
-
 
 }
 
-//count.innerHTML = getCounter();
 
-
-
- 
-function resetData(){
-
-  return ;
-    
-}
 
 GreetMeBtn.addEventListener('click',greet);
-//resetBtn.addEventListener('click',resetData);
 
+resetBtn.addEventListener('click', function run() {
+    
+    //localStorage.setItem('userMap', JSON.stringify({}));
+    count.innerHTML = 0;
+    messages.innerHTML = 'Welcome! Enter your name and pick your desired language.';
+});
 
-
-
-
-
-//function getCounter(){
-
-//return namesList.length; }
- 
-//resetBtn.addEventListener('click',resetData)

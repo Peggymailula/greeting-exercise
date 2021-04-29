@@ -13,13 +13,23 @@
 <body>
     <div class="container">
     <div class="flex-container">
-        <div>Greetings</div>
+        <div><h1>Greetings</h1></div>
        
       </div>
+      <div class="message">
+        <p>Welcome! Enter your name and pick your desired language.</p>
+    </div>
     <div>
-        <br><br><label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="" class="namesInput">
-        <label for="counter" class="counter">0</label>
+        <br><label for="name" class="nametag"> Name:</label>
+        <input type="text" id="name" name="name" value="" class="namesInput" placeholder="Type in your name here">
+        <p class="">
+            <strong class="counter1">Counter : &nbsp;
+                <span id="countNumber" class="counter">0</span>
+            </strong>
+    
+         
+        </div>
+        
        
         <br><br>
     </div>
@@ -44,13 +54,12 @@
        <br> <input type="submit" id="button" class="button" value="Greet Me">
 
     </div>
+    <button id="resetBtn" class="resetBtn">Reset</button>
       
-      <div class="message">
-          message 
-      </div>
-
      
-    </div>
+
+      
+     
     <script src="greet.js" charset="utf-8"></script>
    
     

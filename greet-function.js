@@ -25,22 +25,23 @@ function GreetMe(nameList) {
 
     function setLanguage(languageSet) {
         if(languageSet == "English"){
-            messaging = "Hello , " + nameSet;
+            messaging = "Hello , " + nameSet  + '!';
             total++;
             
             
         }
         else if(languageSet == "Afrikaans"){
-            messaging = "Hallo , " + nameSet;
+            messaging = "Hallo , " + nameSet + '!';
             total++;
             
         }
         else if(languageSet == "isiXhosa"){
-            messaging = "Molo, " + nameSet;
+            messaging = "Molo, " + nameSet  + '!';
             total++;
          
            
         }
+        
     
     }
     function getLanguage(){
