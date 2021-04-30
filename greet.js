@@ -1,52 +1,71 @@
-var languages = document.querySelector(".language");
-var GreetMeBtn = document.querySelector(".button");
-var names = document.querySelector(".namesInput");
-var messages = document.querySelector(".message");
-var count = document.querySelector(".counter");
-var resetBtn = document.querySelector(".resetBtn")
+//adding querySelectors and refs
 
+var displayName = document.querySelector('#displayName');
+var getInput = document.querySelector('#inputBox');
+//var greetBtn = document.querySelector('#greetBtn');
+var resetBtn = document.querySelector('#resetBtn');
+var displayCount = document.querySelector('#countNumber');
 
+var localLogic = {}
 
-//var type= languages.value;
-var total=0;
+if (localStorage['userMap']) {
+    //local storage can only store strings so convert to store object or arrays
+       localLogic = JSON.parse(localStorage['userMap']);
+}
+//an instance of the greet Factory
+var greet = GreetMe();
 
+greet.setlocal(localLogic)
 
-var existingNames = localStorage.getItem('name');
-var counting = localStorage.getItem('counter');
+//get the name of the user from the textbox 
+var getName = function () {
+    var name = getInput.value;
 
-var namesList = existingNames || [] ;
-//var newNames=[];
-
-
-
-function greet(){
-    
-    var checkedRadioBtn = document.querySelector("input[name='language']:checked");
-    if (checkedRadioBtn){
-        var type = checkedRadioBtn.value;
+    return {
+        name
     }
-       
-    var greet= GreetMe(namesList); 
-    greet.setName(names.value);  
-    greet.getName();
-    greet.setLanguage(type);
-    localStorage.setItem('counter',JSON.stringify(namesList.length) );
-    messages.innerHTML= greet.getLanguage();
-   count.innerHTML= JSON.parse(localStorage.getItem('counter'));
- 
-   names.value= "";
-   
-
 }
 
+//function to clear the textbox 
+var clearBox = function () {
+    getInput.value = "";
+}
 
+//display the total counts of greetings
+var setCounter = function () {
 
-GreetMeBtn.addEventListener('click',greet);
+    displayCount.innerHTML = Object.keys(greet.getlocal()).length;
+}
+setCounter();
+
+var submitForm =function(){
+   
+    var radioBtn = document.querySelector('input[name="radioLang"]:checked');
+    var nameFromDom = getName().name;
+    console.log('type of name from DOM : '+typeof(parseFloat(nameFromDom)));
+    //ensure theres no empty name and there is a checked radio button
+    if (nameFromDom){
+        if (radioBtn !== null) {
+            console.log(Object.keys(localLogic).length)
+            var langFromDom = greet.setLang(radioBtn.value);
+            displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
+            //console.log(greet.getlocal())
+            localStorage.setItem('userMap', JSON.stringify(greet.getlocal()));
+            setCounter();
+            clearBox();
+        } else {
+            displayName.innerHTML = ('Please choose your language first');
+        }
+    } else {
+        displayName.innerHTML = 'Please type in name';
+
+    }
+        return false;
+};
+
+//Event listener for the reset button
 
 resetBtn.addEventListener('click', function run() {
-    
-    //localStorage.setItem('userMap', JSON.stringify({}));
-    count.innerHTML = 0;
-    messages.innerHTML = 'Welcome! Enter your name and pick your desired language.';
+    localStorage.clear()
+    location.reload()
 });
-

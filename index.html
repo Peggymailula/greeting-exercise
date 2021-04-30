@@ -4,64 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="greet.css">
-    <link rel="stylesheet" href="simple-grid.css">
-    <script src="greet-function.js" charset="utf-8"></script>
-   
+    <link rel="stylesheet" href="./greet.css">
+    <link rel="stylesheet" href="./simple-grid.css">
+    <title>Greetings</title>
 </head>
-<body>
-    <div class="container">
-    <div class="flex-container">
-        <div><h1>Greetings</h1></div>
-       
-      </div>
-      <div class="message">
-        <p>Welcome! Enter your name and pick your desired language.</p>
-    </div>
-    <div>
-        <br><label for="name" class="nametag"> Name:</label>
-        <input type="text" id="name" name="name" value="" class="namesInput" placeholder="Type in your name here">
-        <p class="">
-            <strong class="counter1">Counter : &nbsp;
-                <span id="countNumber" class="counter">0</span>
-            </strong>
-    
-         
+<body> 
+    <div class="row center">
+        <div class="col-12" id="p1">
+
+            <h1>Greetings</h1>
+           
         </div>
-        
-       
+    </div>
+    <div class="row center">
+        <div class="col-12">
+            <h3 id="displayName">Please enter your name</h3>
+        </div>
+
+    </div>
+    <div class="row center">
+        <div class="col-3"></div>
+
+        <div class="col-6 center">
+            <form id="form1" action="" onsubmit="return submitForm();">
+                <input id="inputBox" type="console.text" placeholder="Type in your name here" pattern="[a-zA-Z]+" title="Please enter only letters A-Z" class="nameInput">
+
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row center">
+        <!--            <div class="col-4"></div>-->
         <br><br>
+        <div class=" col-12 radio-toolbar">
+            <input type="radio" name="radioLang" value="English" id="1" class="language">
+            <label for="1"> English</label>
+            <input type="radio" name="radioLang" value="Afrikaans" id="2" class="language">
+            <label for="2">Afrikaans</label>
+            <input type="radio" name="radioLang" value="isiXhosa" id="3" class="language">
+            <label for="3">isiXhosa</label>
+        </div>
+        <!--            <div class="col-4"></div>-->
+    </div>
+
+
+
+
+    <div class="row center ">
+        <div class="col-6" id="counterAndResetBox">
+            <p class="">
+                <strong class="counter1">Counter : &nbsp;
+                    <span id="countNumber" class="counter">0</span>
+                </strong>
+                <div class="row center">
+                    <div class="col-12 center" id="greetBox">
+                        <button id="greetBtn" type="submit" form="form1" value="Submit" class="button">
+                            <strong>Greet Me!</strong>
+                        </button>
+                    </div>
+            </p>
+            <button id="resetBtn" class="resetBtn">Reset</button>
+        </div>
+        <div class="col-6" id="greetBox">
+            <!-- <button id="greetBtn" type="submit" form="form1" value="Submit">
+                <strong>Greet!</strong>
+            </button> -->
+
+        </div>
+
+
     </div>
     
-
-    <div>
-       <label class="radio-in-line">
-                <input type="radio" name="language" class="language" value="English">
-                <span class="label-body">English</span>
-              </label>
-              <label class="radio-in-line">
-                <input type="radio" name="language" class="language" value="Afrikaans">
-                <span class="label-body">Afrikaans</span>
-              </label>
-              <label class="radio-in-line">
-                <input type="radio" name="language" class="language" value="isiXhosa">
-                <span class="label-body">isiXhosa</span>
-              </label>
-    </div>
-
-    <div>
-       <br> <input type="submit" id="button" class="button" value="Greet Me">
-
-    </div>
-    <button id="resetBtn" class="resetBtn">Reset</button>
-      
-     
-
-      
-     
-    <script src="greet.js" charset="utf-8"></script>
-   
-    
+  
 </body>
+<script src="./greet-function.js"></script>
+<script src="./greet.js"></script>
 </html>

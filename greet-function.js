@@ -1,6 +1,18 @@
-function GreetMe(nameList) {
+function GreetMe() {
 
-    var settingName = "";
+var local ={}
+var counter = 0
+
+function setlocal(name){
+    local = name
+}
+
+function getlocal(){
+    return local
+}
+
+
+/*var settingName = "";
     var messaging="";
     var nameListing = existingNames || [];
     var total=0;
@@ -21,29 +33,46 @@ function GreetMe(nameList) {
         return nameSet;
         
     }
+*/
 
+    function greetNow(userName,languageSet) {
 
-    function setLanguage(languageSet) {
-        if(languageSet == "English"){
-            messaging = "Hello , " + nameSet  + '!';
-            total++;
+    
+        if(local[userName] === undefined){
+            local[userName] = 0;
+            counter++;
             
-            
-        }
-        else if(languageSet == "Afrikaans"){
-            messaging = "Hallo , " + nameSet + '!';
-            total++;
-            
-        }
-        else if(languageSet == "isiXhosa"){
-            messaging = "Molo, " + nameSet  + '!';
-            total++;
-         
            
         }
-        
-    
+        else{
+
+            local[userName]++;
+           
+            
+        }
+        if(languageSet == "English"){
+            return "Hello," + userName  + '!';
+            //total++;
+            
+            
+        }
+        if(languageSet == "Afrikaans"){
+            return "Hallo," + userName + '!';
+            //total++;
+            
+        }
+        if(languageSet == "isiXhosa"){
+            return "Molo," + userName  + '!';
+            //total++;
+            
+        }   
     }
+
+    function getCounter(){
+        return  counter;
+    }
+
+    /*
     function getLanguage(){
         
         return messaging;
@@ -57,21 +86,33 @@ function GreetMe(nameList) {
 
     
 
-    if (localStorage['name']){
-        // ensure catSpotted is a number
-        existingNam = localStorage['name'];
-    }
     
-
-
-
-
+    */
+   var setLang = function (value) {
+    var lang = '';
+    if (value === 'English') {
+        lang = 'English';
+    }
+    if (value === 'Afrikaans') {
+        lang = 'Afrikaans';
+    }
+    if (value === 'isiXhosa') {
+        lang = 'isiXhosa';
+    }
+    return lang
+}
     return {
-        setName,
-        getName,
-       setLanguage,
-       getLanguage,
-        countNames
+
+    setlocal,
+    getlocal,
+    getCounter,
+    greetNow,
+    setLang
+        //setName,
+        //getName,
+       //setLanguage,
+       //getLanguage,
+        //countNames
 
     }
 }
