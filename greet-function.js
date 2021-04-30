@@ -12,32 +12,12 @@ function getlocal(){
 }
 
 
-/*var settingName = "";
-    var messaging="";
-    var nameListing = existingNames || [];
-    var total=0;
-
-    function setName(settingName) {
-        nameSet = settingName;
-        if(nameSet){
-            if (!namesList.includes(nameSet)) {
-                namesList.push(nameSet);
-            }
-        }
-        
-        
-    }
-
-
-    function getName() {
-        return nameSet;
-        
-    }
-*/
 
     function greetNow(userName,languageSet) {
 
-    
+    //Convert lowercase first letter to make sure names are all are in same format
+  //  userName= userName.substring(0, 1).toUpperCase()+ userName.substring(1).slice();
+    userName= userName.substring(0, 1).toUpperCase() + userName.substring(1).toLowerCase();
         if(local[userName] === undefined){
             local[userName] = 0;
             counter++;

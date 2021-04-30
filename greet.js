@@ -39,7 +39,8 @@ var setCounter = function () {
 setCounter();
 
 var submitForm =function(){
-   
+    displayName.classList.remove('green');
+    displayName.classList.remove('red');
     var radioBtn = document.querySelector('input[name="radioLang"]:checked');
     var nameFromDom = getName().name;
     console.log('type of name from DOM : '+typeof(parseFloat(nameFromDom)));
@@ -55,9 +56,11 @@ var submitForm =function(){
             clearBox();
         } else {
             displayName.innerHTML = ('Please choose your language first');
+            displayName.classList.add('red');
         }
     } else {
         displayName.innerHTML = 'Please type in name';
+        displayName.classList.add('red');
 
     }
         return false;
@@ -66,6 +69,10 @@ var submitForm =function(){
 //Event listener for the reset button
 
 resetBtn.addEventListener('click', function run() {
-    localStorage.clear()
-    location.reload()
+  
+    displayName.innerHTML = 'Congratulations! Application has been reset succesfully';
+    displayName.classList.add('green');
+    localStorage.clear();
+    displayCount.innerHTML =0;
+   //location.reload();
 });
