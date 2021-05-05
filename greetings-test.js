@@ -50,7 +50,7 @@ describe('Greet exercise:Message setting' , function(){
         greet1.getlocal()
         greet1.setLang('English');
         
-         assert.equal("Hello,Amy!",greet1.greetNow('Amy','English'));
+         assert.equal("Hello, Amy!",greet1.greetNow('Amy','English'));
 
 });
 it('should take in the name Enhle and use the Afrikaans language to greet her' , function(){
@@ -59,7 +59,7 @@ it('should take in the name Enhle and use the Afrikaans language to greet her' ,
     greet1.getlocal()
     greet1.setLang('Afrikaans');
     
-     assert.equal("Hallo,Enhle!",greet1.greetNow('Enhle','Afrikaans'));
+     assert.equal("Groete, Enhle!",greet1.greetNow('Enhle','Afrikaans'));
 
 });
 it('should take in the name Penny and use isiXhosa language to greet her' , function(){
@@ -68,7 +68,7 @@ it('should take in the name Penny and use isiXhosa language to greet her' , func
     greet1.getlocal()
     greet1.setLang('isiXhosa');
     
-     assert.equal("Molo,Penny!",greet1.greetNow('Penny','isiXhosa'));
+     assert.equal("Molo, Penny!",greet1.greetNow('Penny','isiXhosa'));
 
 });
 })
