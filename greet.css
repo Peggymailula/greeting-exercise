@@ -34,10 +34,12 @@ h1{
       font-size: 16px;
       margin: 4px 2px;
       cursor: pointer;
-      width: 20%;
-      margin-left: 95%;
+      width: 30%;
+      margin-left: 77%;
+      
       background-color:rgb(233, 241, 239);
       border-radius: 10px;
+      display: inline-block;
     }
     .resetBtn{
       border: none;
@@ -49,10 +51,12 @@ h1{
       font-size: 16px;
       margin: 4px 2px;
       cursor: pointer;
-      width: 20%;
-      margin-left: 93%;
+      width: 30%;
+      margin-right: 70%;
       background-color:rgb(233, 241, 239);
       border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 20%;
     
     }
     .message{
@@ -76,6 +80,7 @@ h1{
       color: black;
       font-size: large;
      }
+  
   }
   @media  (max-width: 800px) {
     .button {

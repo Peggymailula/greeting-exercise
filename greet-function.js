@@ -31,18 +31,18 @@ function getlocal(){
             
         }
         if(languageSet == "English"){
-            return "Hello," + userName  + '!';
+            return "Hello, " + userName  + '!';
             //total++;
             
             
         }
         if(languageSet == "Afrikaans"){
-            return "Hallo," + userName + '!';
+            return "Groete, " + userName + '!';
             //total++;
             
         }
         if(languageSet == "isiXhosa"){
-            return "Molo," + userName  + '!';
+            return "Molo, " + userName  + '!';
             //total++;
             
         }   

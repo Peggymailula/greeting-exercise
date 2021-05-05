@@ -5,6 +5,7 @@ var getInput = document.querySelector(".input");
 var resetBtn = document.querySelector(".resetBtn");
 var displayCount = document.querySelector('#countNumber');
 
+
 var localLogic = {}
 
 if (localStorage['userMap']) {
@@ -28,6 +29,10 @@ var getName = function () {
 //function to clear the textbox 
 var restart = function () {
     getInput.value = "";
+    radioBtn= document.querySelector('input[name="radioLang"]:checked').checked = false;
+  
+
+
 }
 
 //Used to set counter
@@ -45,32 +50,37 @@ var submitForm =function(){
    
     if (nameFromDom){
         if (radioBtn !== null) {
-          
+           
             var langFromDom = greet.setLang(radioBtn.value);
             displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
             
             localStorage.setItem('userMap', JSON.stringify(greet.getlocal()));
             setCounter();
             restart();
+         //   radioBtn = document.querySelector('input[name="radioLang"]:unchecked');
         } 
         else {
-            t3 = setTimeout(function () { displayName.innerHTML ='ERROR! LANGUAGE  NOT SELECTED!' }, 0); 
+            t3 = setTimeout(function () { displayName.innerHTML ='Error! Language not selected' }, 0); 
             displayName.classList.add('red');
             t4=setTimeout(function () { displayName.innerHTML = 'Please select language of choice.'; }, 3000); 
             //localStorage.clear();
             
         }
     } else {
-        t3 = setTimeout(function () { displayName.innerHTML ='ERROR! NAME NOT ENTERED.' }, 0); 
+        t3 = setTimeout(function () { displayName.innerHTML ='Error! Name not selected.' }, 0); 
         //setTimeout(displayName.innerHTML = 'Please enter your name',5000) ;
         displayName.classList.add('red');
          t2=setTimeout(function () { displayName.innerHTML = 'Please enter your name'; }, 3000); 
           //displayName.classList.remove('green');
         localStorage.clear();
+      
         //location.reload();
+        //radioBtn.innerHTML = unch
+       
 
     }
         return false;
+        
 };
 
 
@@ -85,5 +95,8 @@ resetBtn.addEventListener('click', function btn() {
     //displayName.classList.remove('green');
     localStorage.clear();
     displayCount.innerHTML =0;
-  // location.reload();
+    restart();
+    radioBtn= document.querySelector('input[name="radioLang"]:checked').checked = false;
+    //radioBtn.innerHTML = unchecked;
+  //location.reload();
 });

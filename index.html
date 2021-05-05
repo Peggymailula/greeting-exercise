@@ -27,7 +27,7 @@
 
         <div class="col-6 center">
             <form id="form1" action="" onsubmit="return submitForm();">
-                <input id="inputBox" class="input" type="console.text" placeholder="Enter your name here"   class="nameInput">
+                <input id="inputBox" class="input" type="console.text" placeholder="Enter your name here"   class="nameInput" pattern="[a-zA-Z]*">
 
             </form>
         </div>
@@ -39,7 +39,7 @@
         <div class=" col-12 radio-toolbar">
             <input type="radio" name="radioLang" value="English" id="1" class="language">
             <label for="1"> English</label>
-            <input type="radio" name="radioLang" value="Afrikaans" id="2" class="language">
+            <input type="radio" name="radioLang" value="Afrikaans" id="2" class="language ">
             <label for="2">Afrikaans</label>
             <input type="radio" name="radioLang" value="isiXhosa" id="3" class="language">
             <label for="3">isiXhosa</label>
@@ -56,14 +56,17 @@
                 <strong class="counter1">Counter : &nbsp;
                     <span id="countNumber" class="counter">0</span>
                 </strong>
+            </div>
+    </div>
                 <div class="row center">
-                    <div class="col-12 center" id="greetBox">
+                    <div class="col-6 center" id="greetBox">
                         <button id="greetBtn" type="submit" form="form1" value="Submit" class="button">
                             <strong>Greet Me!</strong>
                         </button>
                     </div>
-            </p>
+            <div class="col-6 center">
             <button id="resetBtn" class="resetBtn">Reset</button>
+            </div>
         </div>
         <div class="col-6" id="greetBox">
             <!-- <button id="greetBtn" type="submit" form="form1" value="Submit">
