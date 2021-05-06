@@ -64,10 +64,12 @@ function getlocal(){
        // return total;
     }
 
-    
-
-    
     */
+
+    function clearNames(){
+     local.clear()
+    }
+
    var setLang = function (value) {
     var lang = '';
     if (value === 'English') {
@@ -87,7 +89,8 @@ function getlocal(){
     getlocal,
     getCounter,
     greetNow,
-    setLang
+    setLang,
+    clearNames
         //setName,
         //getName,
        //setLanguage,
