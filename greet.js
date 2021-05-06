@@ -7,7 +7,8 @@ var displayCount = document.querySelector('#countNumber');
 var nameList = document.querySelector(".myList")
 
 
-var localLogic = {}
+var localLogic = {};
+var empty ={};
 
 if (localStorage['userMap']) {
 
@@ -94,18 +95,20 @@ var submitForm = function () {
 
 
 resetBtn.addEventListener('click', function btn() {
+    var clearance=greet.getlocal();
     displayName.classList.remove('red');
     var t1 = setTimeout(function () { displayName.innerHTML = 'Congratulations! Application has been reset succesfully'; }, 0);
     var t2 = setTimeout(function () { displayName.innerHTML = 'Please enter your name'; }, 3000);
     t1;
     displayName.classList.add('green');
     t2;
-    greet.clearNames()
+    localStorage.clear();
+    location.reload();
     nameList.innerHTML ='No names to show.';
     //displayName.classList.remove('green');
     displayCount.innerHTML = 0;
     restart();
-    localStorage.clear();
+  //  localStorage.clear();
   
     location.reload();
    // nameList.innerHTML ='No names entered';

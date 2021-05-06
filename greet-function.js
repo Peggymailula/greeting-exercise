@@ -67,7 +67,7 @@ function getlocal(){
     */
 
     function clearNames(){
-    delete(local) ;
+     local.clear();
     }
 
    var setLang = function (value) {
