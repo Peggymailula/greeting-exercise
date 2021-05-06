@@ -100,15 +100,14 @@ resetBtn.addEventListener('click', function btn() {
     t1;
     displayName.classList.add('green');
     t2;
+    greet.clearNames()
     nameList.innerHTML ='No names to show.';
     //displayName.classList.remove('green');
     displayCount.innerHTML = 0;
+    restart();
     localStorage.clear();
-    localStorage.removeItem('userMap')
-    greet.getlocal()
-    //location.reload();
-    // restart();
-
+  
+    location.reload();
    // nameList.innerHTML ='No names entered';
   //  radioBtn = document.querySelector('input[name="radioLang"]:checked').checked = false;
     //radioBtn.innerHTML = unchecked;
